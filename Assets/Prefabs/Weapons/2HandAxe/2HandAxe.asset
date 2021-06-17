@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b226fe65732e36843a641cb52c0b773d, type: 3}
+  m_Name: 2HandAxe
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 2570578350211237997, guid: b6a99cfd690f91b449cbbaef304b9e43,
+    type: 3}
+  animatorOverrider: {fileID: 22100000, guid: eb2e595af554cd14f9bd18de931c57c0, type: 2}
+  gripType: 0
+  damage: 10
+  range: 1
+  attackDelay: 1
+  staminaConsumption: 33
