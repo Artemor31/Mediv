@@ -6,7 +6,7 @@ public class MobileInput : InputSystem
     
     public MobileActions MobileActions { get; private set; }
     
-    public MobileInput()
+    public MobileInput(MobileMoveInput moveInput, MobileCamera mobileCamera)
     {
         MoveInput = new MobileMoveInput();
         CameraLook = new MobileCamera();

@@ -1,36 +1,37 @@
-public class PlayerFacade
+using Characters;
+
+public class PlayerFacade : CharacterFacade
 {
+    // Add animator component.
+    
+    protected override Stats Stats { get; set; }
+    
     private readonly InputSystem _inputSystem;
     private readonly IAttacker _attacker;
     private readonly IMover _mover;
     private readonly ICaster _caster;
+    private readonly CharacterAnimator _animator;
 
-    public PlayerFacade(InputSystem inputSystem, IAttacker attacker, IMover mover, ICaster caster)
+    public PlayerFacade(InputSystem inputSystem, IAttacker attacker, IMover mover, ICaster caster,
+        CharacterAnimator animator)
     {
-        {
-            {
-                {
-                    // Либо создание 2-х полей 
-                    var moveInput = _inputSystem.MoveInput;
-                    var cameraInput = _inputSystem.CameraLook;
-
-                    // Либо в методах обращение через триллион точек
-                    _inputSystem.MoveInput.ReadMoveInput();
-                }
-            }
-        }
-
         _inputSystem = inputSystem;
         _attacker = attacker;
         _mover = mover;
         _caster = caster;
+        _animator = animator;
     }
 
-    public void ProcessMovement()
+    public override void PerformMovement()
     {
-        // Правильное взаимодействие игрока и фасада.
-        
-       // _inputSystem.ReadMoveInput();
+        var moveDirection = _inputSystem.MoveInput.ReadMoveInput();
         _mover.Move();
+        //_animator.UpdateMoveSpeed();
+    }
+
+    public override void PerformAttack()
+    {
+        _animator.Attack();
+        _attacker.Attack(); 
     }
 }

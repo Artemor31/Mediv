@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UI;
 
 namespace Characters
@@ -34,7 +35,9 @@ namespace Characters
         
         // player state checkers
         private bool _onGround;
-        private bool _isAttacking;
+        public bool GoAttack;
+        public bool IsRoll;
+        public float RollSpeed;
 
         
         private void Awake()
@@ -42,17 +45,16 @@ namespace Characters
             _mainCamera = Camera.main;
             _rigidbody = GetComponent<Rigidbody>();
             _fighter = GetComponent<Fighter>();
-            _animator = transform.GetChild(0).gameObject.GetComponent<AnimatorScheduler>();
+            _animator = transform.GetChild(0).GetComponent<AnimatorScheduler>();
             
             
             attackButton.OnAttackClicked += Attack;
             jumpButton.OnJumpClicked += Jump;
-            actionButton.OnInteractClicked += Interact;
+            actionButton.OnRollClicked += Roll;
         }
         
         private void FixedUpdate()
         {
-            _isAttacking = _animator.isAttacking;
             UpdateCharacterState();
         }
 
@@ -63,8 +65,22 @@ namespace Characters
 
         private void UpdateCharacterState()
         {
+            if (IsRoll)
+            {
+                _rigidbody.velocity = transform.forward * RollSpeed * Time.deltaTime;
+            }
+            
             OnGroundCheck();
             Walk();
+        }
+
+        public void Roll()
+        {
+            if (!_onGround) return;
+            //var rotation = _mainCamera.transform.eulerAngles;
+            //transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotation.y, transform.eulerAngles.z);
+            _animator.Roll();
+            IsRoll = true;
         }
 
         private void UpdateCameraPosition()
@@ -88,13 +104,16 @@ namespace Characters
 
         private void Attack()
         {
-            if (_isAttacking || !_onGround) return;
+            if (!_onGround) return;
+            GoAttack = true;
+            _animator.animator.SetBool("goAttack", true);
             _fighter.Attack();
         }
         
         private void Walk()
         {
-            if (_isAttacking || !_onGround) return;
+            if(IsRoll) return;
+            if (GoAttack || !_onGround) return;
             
             // animator and input
             _animator.UpdateMoveSpeed(_rigidbody.velocity.magnitude);  //maybe velocity.magnitude/2  ????????????????
@@ -114,7 +133,7 @@ namespace Characters
 
         private void Jump()
         {
-            if (_isAttacking || !_onGround) return;
+            if (!_onGround) return;
             _animator.Jump();
             var velocity = _rigidbody.velocity;
             velocity = new Vector3(velocity.x, _jumpForce, velocity.z);

@@ -6,23 +6,35 @@ namespace Characters
 {
     public class AnimatorScheduler : MonoBehaviour
     {
+        
         public event Action OnAttackEnded;
         
         private static readonly int Ground = Animator.StringToHash("OnGround");
-        private static readonly int Attack1 = Animator.StringToHash("Attack");
-        private static readonly int AttackType = Animator.StringToHash("AttackType");
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Die1 = Animator.StringToHash("Die");
         
         // variables
         [FormerlySerializedAs("_animator")] 
-        [SerializeField] private Animator animator;
+        [SerializeField] public Animator animator;
         public bool isAttacking;
 
+        [SerializeField] private PlayerController _player;
 
-        private void Awake()
+        [SerializeField] private AttackBehaviour[] _attackBehaviours;
+
+        private void Start()
         {
             animator = GetComponent<Animator>();
+            foreach (var behaviour in _attackBehaviours)
+            {
+                behaviour.Player = _player;
+                behaviour.Animator = animator;
+            }
+        }
+
+        public void endRoll()
+        {
+            _player.IsRoll = false;
         }
 
         public Animator GetAnimatorController()
@@ -36,20 +48,25 @@ namespace Characters
             animator.Play("Jump");
             animator.SetBool(Ground, false);
         }
+
+        public void Roll()
+        {
+            animator.Play("Roll");
+        }
     
         // on attack
         public void Attack(int attackTypeNumber)
         {
-            isAttacking = true;
-            animator.SetInteger(AttackType, attackTypeNumber);
-            animator.SetTrigger(Attack1);
+            //isAttacking = true;
+            //animator.SetInteger(AttackType, attackTypeNumber);
+           // animator.Play("Attack1");
         }
     
         // attack end event
         public void AttackEnded()
         {
-            isAttacking = false;
-            OnAttackEnded?.Invoke();
+            //isAttacking = false;
+           // OnAttackEnded?.Invoke();
         }
     
         // on grounding after jump

@@ -1,22 +1,17 @@
-
-
 public class PlayerFacadeFabric
 {
-
     // Create PlayerFacadeData to store values and not new them there
-    private readonly IAttacker _attacker = new Attacker();
-    private readonly IMover _mover = new Mover();
-    private readonly ICaster _caster = new Caster();
-    
     private readonly InputSystem _inputSystem;
+    private readonly CharacterAnimator _animator;
 
-    public PlayerFacadeFabric(InputSystem inputSystem)
+    public PlayerFacadeFabric(InputSystem inputSystem, CharacterAnimator animator)
     {
         _inputSystem = inputSystem;
+        _animator = animator;
     }
 
     public PlayerFacade GetMobilePlayer()
     {
-        return new PlayerFacade(_inputSystem, _attacker, _mover, _caster);
+        return new PlayerFacade(_inputSystem, new Attacker(), new Mover(), new Caster(), _animator);
     }
 }

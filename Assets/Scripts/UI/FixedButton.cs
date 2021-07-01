@@ -12,7 +12,7 @@ namespace UI
         // UI buttons events
         public event Action OnJumpClicked;
         public event Action OnAttackClicked;
-        public event Action OnInteractClicked;
+        public event Action OnRollClicked;
 
         private void Start()
         {
@@ -24,7 +24,7 @@ namespace UI
             pressed = true;
             OnAttackClicked?.Invoke();
             OnJumpClicked?.Invoke();
-            OnInteractClicked?.Invoke();
+            OnRollClicked?.Invoke();
         }
 
         public void OnPointerUp(PointerEventData eventData)

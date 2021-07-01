@@ -1,24 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ICameraLook
 {
-    [HideInInspector]
-    public Vector2 TouchDist;
-    [HideInInspector]
-    public Vector2 PointerOld;
-    [HideInInspector]
-    protected int PointerId;
-    [HideInInspector]
-    public bool Pressed;
-    void Update()
+    [HideInInspector] public Vector2 TouchDist;
+    [HideInInspector] public Vector2 PointerOld;
+    [HideInInspector] public bool Pressed;
+    
+    private int _pointerId;
+
+    private void Update()
     {
         if (Pressed)
         {
-            if (PointerId >= 0 && PointerId < Input.touches.Length)
+            if (_pointerId >= 0 && _pointerId < Input.touches.Length)
             {
-                TouchDist = Input.touches[PointerId].position - PointerOld;
-                PointerOld = Input.touches[PointerId].position;
+                TouchDist = Input.touches[_pointerId].position - PointerOld;
+                PointerOld = Input.touches[_pointerId].position;
             }
             else
             {
@@ -35,7 +33,7 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void OnPointerDown(PointerEventData eventData)
     {
         Pressed = true;
-        PointerId = eventData.pointerId;
+        _pointerId = eventData.pointerId;
         PointerOld = eventData.position;
     }
 
@@ -45,4 +43,8 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         Pressed = false;
     }
 
+    public Vector2 ReadCameraInput()
+    {
+        return TouchDist;
+    }
 }

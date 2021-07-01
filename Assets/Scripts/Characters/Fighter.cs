@@ -17,10 +17,11 @@ namespace Characters
         /// Count of attack animations in Player Animator.
         /// </summary>
         private const int AttackCounter = 3;
+
         private int _currentAttack = 1;
         private float _timeToAttack;
 
-        
+
         private void Start()
         {
             _stats = GetComponent<Stats>();
@@ -29,7 +30,7 @@ namespace Characters
             _animator = transform.GetChild(0).gameObject.GetComponent<AnimatorScheduler>();
             _animator.OnAttackEnded += DisableWeaponCollider;
             _timeToAttack = _currentWeapon.Delay;
-            
+
             EquipWeapon(_currentWeapon);
             DisableWeaponCollider();
         }
@@ -41,15 +42,24 @@ namespace Characters
 
         public void Attack()
         {
-            var staminaEnough = _stats.TryConsumeStamina(_currentWeapon.StaminaConsumption);
-            if (_timeToAttack != 0 || !staminaEnough) return;
-            
+            //var staminaEnough = _stats.TryConsumeStamina(_currentWeapon.StaminaConsumption);
+            //if (_timeToAttack != 0 || !staminaEnough) return;
+
             _weaponCollider.enabled = true;
             _timeToAttack = _currentWeapon.Delay;
-
-            UpdateCombo();
-            
             _animator.Attack(_currentAttack);
+        }
+
+        public void AttackOnDistance()
+        {
+            var enemies = Physics.OverlapSphere(transform.position, _currentWeapon.Range);
+            foreach (var enemy in enemies)
+            {
+                if (enemy.TryGetComponent(out Stats stats))
+                {
+                    stats.TakeDamage(_currentWeapon.Damage);
+                }
+            }
         }
 
         public void ApplyDamage(Stats stats)
@@ -59,7 +69,7 @@ namespace Characters
 
         private void UpdateCombo()
         {
-            if (_currentAttack == AttackCounter) 
+            if (_currentAttack == AttackCounter)
                 _currentAttack = 1;
             else
                 _currentAttack++;
@@ -84,6 +94,5 @@ namespace Characters
         /// Disable collider while character not attacking.
         /// </summary>
         private void DisableWeaponCollider() => _weaponCollider.enabled = false;
-        
     }
 }

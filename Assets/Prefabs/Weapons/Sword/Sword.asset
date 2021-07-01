@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 411017955018428853, guid: d2dc0bfea72ce5a43897f124e4f33996,
     type: 3}
-  animatorOverrider: {fileID: 22100000, guid: 0735c7f8d61be0c409e2e4e4b91fa548, type: 2}
-  position: 0
-  weaponCollider: {fileID: 0}
+  animatorOverrider: {fileID: 0}
+  gripType: 0
   damage: 70
   range: 2
   attackDelay: 1.5
+  staminaConsumption: 33
