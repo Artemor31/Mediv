@@ -1,4 +1,6 @@
+using System;
 
+[Serializable]
 public class MobileInput : InputSystem
 {
     public sealed override IMoveInput MoveInput { get; protected set; }

@@ -5,15 +5,12 @@ using Weapons;
 
 public class Player : MonoBehaviour
 {
-    private readonly PlayerFacade _facade;
+    private InputSystem _input;
+    private PlayerFacade _facade;
 
-    private void Awake()
+    public void Init(InputSystem input, PlayerFacade facade)
     {
-        
+        _input = input;
+        _facade = facade;
     }
-}
-
-public class PlayerInstaller
-{
-    
 }

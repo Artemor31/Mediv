@@ -6,8 +6,7 @@ public class PlayerAnimator : CharacterAnimator
     private static readonly int Died = Animator.StringToHash("Die");
     private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
     private static readonly int Ground = Animator.StringToHash("OnGround");
-
-    private bool _onGround;
+    private static readonly int GOAttack = Animator.StringToHash("goAttack");
 
     private PlayerAnimator(){}
     
@@ -26,13 +25,23 @@ public class PlayerAnimator : CharacterAnimator
         _animator.SetFloat(MoveSpeed, speed);
     }
 
-    public void OnGround()
+    public void OnGround(bool onGround)
     {
-        _animator.SetBool(Ground, _onGround);
+        _animator.SetBool(Ground, onGround);
     }
 
     public override void Attack()
     {
-        throw new System.NotImplementedException();
+        _animator.SetBool(GOAttack, true);
+    }
+    public void Jump()
+    {
+        _animator.Play("Jump");
+        _animator.SetBool(Ground, false);
+    }
+
+    public void Roll()
+    {
+        _animator.Play("Roll");
     }
 }
