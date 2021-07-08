@@ -48,9 +48,9 @@ namespace Characters
             _animator = transform.GetChild(0).GetComponent<AnimatorScheduler>();
             
             
-            attackButton.OnAttackClicked += Attack;
-            jumpButton.OnJumpClicked += Jump;
-            actionButton.OnRollClicked += Roll;
+            attackButton.OnAttacked += Attack;
+            jumpButton.OnJumped += Jump;
+            actionButton.OnRolled += Roll;
         }
         
         private void FixedUpdate()

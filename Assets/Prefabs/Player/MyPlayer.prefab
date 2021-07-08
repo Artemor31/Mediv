@@ -80,11 +80,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   health: 100
-  stamina: 100
-  maxHealth: 0
-  maxStamina: 0
-  money: 0
-  staminaUI: {fileID: 0}
+  stamina: 10000
+  _maxHealth: 0
+  _maxStamina: 0
+  _money: 0
+  _staminaUI: {fileID: 0}
 --- !u!114 &7028907121899589562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332f82dcc40740845a130ee01a99c01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 11400000, guid: 3861ca25e4edfc74bbeca903a000f2d0, type: 2}
+  _currentWeapon: {fileID: 11400000, guid: 1307b4d3b7952384ba1d049aab58e0f9, type: 2}
 --- !u!114 &5252908170410044525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,12 +114,15 @@ MonoBehaviour:
   attackButton: {fileID: 0}
   actionButton: {fileID: 0}
   leftJoystick: {fileID: 0}
-  touchField: {fileID: 0}
-  animator: {fileID: 0}
-  jumpForce: 5
-  maxSpeed: 5.8
+  _touchField: {fileID: 0}
+  _animator: {fileID: 9201792233796562991}
+  _jumpForce: 5
+  _maxSpeed: 5.8
   x: 2
   z: 2
+  GoAttack: 0
+  IsRoll: 0
+  RollSpeed: 200
 --- !u!1001 &3573147528812529038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,7 +134,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 08f0e852d81cc0949bbd93844b7f9005, type: 2}
+      objectReference: {fileID: 9100000, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b, type: 2}
     - target: {fileID: 3505316257449173354, guid: a60550e1214089648853d8b5780ded18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,6 +195,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnightInHat
       objectReference: {fileID: 0}
+    - target: {fileID: 5630920067006592417, guid: a60550e1214089648853d8b5780ded18,
+        type: 3}
+      propertyPath: _attackBehaviours.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5630920067006592417, guid: a60550e1214089648853d8b5780ded18,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 5252908170410044525}
+    - target: {fileID: 5630920067006592417, guid: a60550e1214089648853d8b5780ded18,
+        type: 3}
+      propertyPath: _attackBehaviours.Array.data[0]
+      value: 
+      objectReference: {fileID: -618099237826906080, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b,
+        type: 2}
+    - target: {fileID: 5630920067006592417, guid: a60550e1214089648853d8b5780ded18,
+        type: 3}
+      propertyPath: _attackBehaviours.Array.data[1]
+      value: 
+      objectReference: {fileID: 5812064188104716654, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b,
+        type: 2}
+    - target: {fileID: 5630920067006592417, guid: a60550e1214089648853d8b5780ded18,
+        type: 3}
+      propertyPath: _attackBehaviours.Array.data[2]
+      value: 
+      objectReference: {fileID: 5846316756623812938, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a60550e1214089648853d8b5780ded18, type: 3}
 --- !u!4 &86478992261473508 stripped
@@ -200,3 +231,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3573147528812529038}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9201792233796562991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5630920067006592417, guid: a60550e1214089648853d8b5780ded18,
+    type: 3}
+  m_PrefabInstance: {fileID: 3573147528812529038}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2815124ad9e7149a137f9978f9c985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

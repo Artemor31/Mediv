@@ -11,7 +11,7 @@ namespace Characters
         [SerializeField] private Weapon weapon;
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Stats stats;
-        
+
         [SerializeField] private float moveSpeed;
         [SerializeField] private float weaponRange;
 
@@ -30,16 +30,8 @@ namespace Characters
         private void Update()
         {
             if (stats.IsDead()) return;
-            
-            if (player == null)
-            {
-                player = GameObject.FindGameObjectWithTag("Player");
-                return;
-            }
-            
             UpdateEnemyState();
         }
-
 
         private void UpdateEnemyState()
         {
@@ -53,16 +45,12 @@ namespace Characters
                 Attack();
             }
         }
-        
+
         private void Attack()
         {
             animator.Attack(1);
         }
-
-        /// <summary>
-        /// Moves to given position.
-        /// </summary>
-        /// <param name="destination"></param>
+        
         private void MoveTo(Vector3 destination)
         {
             UpdateAnimator();
@@ -70,28 +58,15 @@ namespace Characters
             agent.isStopped = false;
         }
 
-        private void StopMovement()
-        {
+        private void StopMovement() => 
             agent.isStopped = true;
-        }
-
-        /// <summary>
-        /// Is player in attack range of character.
-        /// </summary>
-        /// <returns></returns>
-        private bool InAttackRange()
-        {
-            return Vector3.Distance(transform.position, player.transform.position) < weaponRange;
-        }
-
-        private void ChangeAgentSpeed(float speed)
-        {
+        
+        private void ChangeAgentSpeed(float speed) => 
             agent.speed = speed;
-        }
-
-        /// <summary>
-        /// Updates animator state based on movement speed.
-        /// </summary>
+        
+        private bool InAttackRange() =>
+            Vector3.Distance(transform.position, player.transform.position) < weaponRange;
+        
         private void UpdateAnimator()
         {
             Vector3 velocity = agent.velocity;
@@ -101,3 +76,4 @@ namespace Characters
         }
     }
 }
+

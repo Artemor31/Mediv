@@ -4,14 +4,13 @@ public class PlayerFacadeFabric
     private readonly InputSystem _inputSystem;
     private readonly CharacterAnimator _animator;
 
-    public PlayerFacadeFabric(InputSystem inputSystem, CharacterAnimator animator)
+    public PlayerFacadeFabric(CharacterAnimator animator)
     {
-        _inputSystem = inputSystem;
         _animator = animator;
     }
 
-    public PlayerFacade GetMobilePlayer()
+    public PlayerFacade GetMobilePlayer(IAttacker attacker, IMover mover, ICaster caster)
     {
-        return new PlayerFacade(_inputSystem, new Attacker(), new Mover(), new Caster(), _animator);
+        return new PlayerFacade(attacker, mover, caster, _animator);
     }
 }

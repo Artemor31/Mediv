@@ -4,16 +4,16 @@ using UnityEngine.EventSystems;
 
 namespace UI
 {
-    public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+    public class FixedButton : MonoBehaviour, IPlayerActions, IPointerUpHandler, IPointerDownHandler
     {
         [HideInInspector]
         public bool pressed;
 
-        // UI buttons events
-        public event Action OnJumpClicked;
-        public event Action OnAttackClicked;
-        public event Action OnRollClicked;
-
+        public event Action OnAttacked;
+        public event Action OnInteracted;
+        public event Action OnJumped;
+        public event Action OnCasted;
+        
         private void Start()
         {
             name = gameObject.name;
@@ -22,14 +22,18 @@ namespace UI
         public void OnPointerDown(PointerEventData eventData)
         {
             pressed = true;
-            OnAttackClicked?.Invoke();
-            OnJumpClicked?.Invoke();
-            OnRollClicked?.Invoke();
+            OnAttacked?.Invoke();
+            OnJumped?.Invoke();
+            OnRolled?.Invoke();
+            OnInteracted?.Invoke();
+            OnCasted?.Invoke();
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             pressed = false;
         }
+
+        public event Action OnRolled;
     }
 }

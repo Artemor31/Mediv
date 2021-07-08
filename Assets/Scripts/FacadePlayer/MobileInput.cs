@@ -6,11 +6,12 @@ public class MobileInput : InputSystem
     public sealed override IMoveInput MoveInput { get; protected set; }
     public sealed override ICameraLook CameraLook { get; protected set; }
     
-    public MobileActions MobileActions { get; private set; }
+    public IPlayerActions PlayerActions { get; private set; }
     
-    public MobileInput(MobileMoveInput moveInput, MobileCamera mobileCamera)
+    public MobileInput(IMoveInput moveInput, ICameraLook mobileCamera, IPlayerActions actions)
     {
-        MoveInput = new MobileMoveInput();
-        CameraLook = new MobileCamera();
+        MoveInput = moveInput;
+        CameraLook = mobileCamera;
+        PlayerActions = actions;
     }
 }

@@ -607,18 +607,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 797549697}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &119185209 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5252908170410044525, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5252908168835446872}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b227772152a7b354495cab18fdec744f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &178671141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15539,11 +15527,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 86478992270636386, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b, type: 2}
     - target: {fileID: 5252908170410044525, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
         type: 3}
       propertyPath: jumpButton
@@ -15566,24 +15549,9 @@ PrefabInstance:
       objectReference: {fileID: 1773734685}
     - target: {fileID: 5252908170410044525, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
         type: 3}
-      propertyPath: touchField
-      value: 
-      objectReference: {fileID: 1894412282}
-    - target: {fileID: 5252908170410044525, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
       propertyPath: _touchField
       value: 
       objectReference: {fileID: 1894412282}
-    - target: {fileID: 5252908170410044525, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 5252908168835446873}
-    - target: {fileID: 5252908170410044525, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: RollSpeed
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 5541248341918556943, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15641,93 +15609,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6065503647790599418, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
         type: 3}
-      propertyPath: staminaUI
-      value: 
-      objectReference: {fileID: 1529263872}
-    - target: {fileID: 6065503647790599418, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
       propertyPath: _staminaUI
       value: 
       objectReference: {fileID: 1529263872}
-    - target: {fileID: 6065503647790599418, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: stamina
-      value: 10000
-      objectReference: {fileID: 0}
     - target: {fileID: 7028907121899589560, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
         type: 3}
       propertyPath: m_Name
       value: MyPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 7028907121899589562, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _currentWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 1307b4d3b7952384ba1d049aab58e0f9,
-        type: 2}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _attackBehaviours.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 119185209}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _transition1
-      value: 
-      objectReference: {fileID: -1336073970656244585, guid: 565dcc73789e77640b10849c10c16796,
-        type: 2}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _transition2
-      value: 
-      objectReference: {fileID: 4234608675217166827, guid: 565dcc73789e77640b10849c10c16796,
-        type: 2}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _idle
-      value: 
-      objectReference: {fileID: -8055240036483643217, guid: 565dcc73789e77640b10849c10c16796,
-        type: 2}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _transition3
-      value: 
-      objectReference: {fileID: -6392974702999451779, guid: 565dcc73789e77640b10849c10c16796,
-        type: 2}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _attackBehaviours.Array.data[0]
-      value: 
-      objectReference: {fileID: -618099237826906080, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b,
-        type: 2}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _attackBehaviours.Array.data[1]
-      value: 
-      objectReference: {fileID: 5812064188104716654, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b,
-        type: 2}
-    - target: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-        type: 3}
-      propertyPath: _attackBehaviours.Array.data[2]
-      value: 
-      objectReference: {fileID: 5846316756623812938, guid: 5daa0ff49fec2314482f5b3b4b5b1a8b,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a2ae2a7bff5e63409db260a2482a0c2, type: 3}
---- !u!114 &5252908168835446873 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9201792233796562991, guid: 7a2ae2a7bff5e63409db260a2482a0c2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5252908168835446872}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c2815124ad9e7149a137f9978f9c985, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

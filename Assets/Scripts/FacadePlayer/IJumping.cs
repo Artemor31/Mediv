@@ -2,5 +2,5 @@ using System;
 
 public interface IJumping
 {
-    event Action Jumped;
+    event Action OnJumped;
 }

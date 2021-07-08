@@ -2,5 +2,5 @@ using System;
 
 public interface IAttacking
 {
-    event Action Attacked;
+    event Action OnAttacked;
 }
