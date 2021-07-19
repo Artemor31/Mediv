@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ICameraLook
+public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ICameraInput
 {
     [HideInInspector] public Vector2 TouchDist;
     [HideInInspector] public Vector2 PointerOld;
@@ -43,7 +43,7 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         Pressed = false;
     }
 
-    public Vector2 ReadCameraInput()
+    public Vector2 GetInput()
     {
         return TouchDist;
     }

@@ -16,10 +16,8 @@ namespace Characters
         // variables
         [FormerlySerializedAs("_animator")] 
         [SerializeField] public Animator animator;
-        public bool isAttacking;
 
         [SerializeField] private PlayerController _player;
-
         [SerializeField] private AttackBehaviour[] _attackBehaviours;
 
         private void Start()
@@ -55,7 +53,7 @@ namespace Characters
         }
     
         // on attack
-        public void Attack(int attackTypeNumber)
+        public void Attack()
         {
             //isAttacking = true;
             //animator.SetInteger(AttackType, attackTypeNumber);

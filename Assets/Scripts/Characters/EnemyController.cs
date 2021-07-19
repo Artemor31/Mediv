@@ -17,7 +17,7 @@ namespace Characters
 
         private void Start()
         {
-            weaponRange = weapon.Range;
+            //weaponRange = weapon.Range;
             weaponRange = 1.5f;
             animator = transform.GetChild(0).gameObject.GetComponent<AnimatorScheduler>();
             player = GameObject.FindGameObjectWithTag("Player");
@@ -48,7 +48,7 @@ namespace Characters
 
         private void Attack()
         {
-            animator.Attack(1);
+            animator.Attack();
         }
         
         private void MoveTo(Vector3 destination)

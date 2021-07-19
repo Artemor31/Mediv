@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace UI
 {
-    public class FixedButton : MonoBehaviour, IPlayerActions, IPointerUpHandler, IPointerDownHandler
+    public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         [HideInInspector]
         public bool pressed;
